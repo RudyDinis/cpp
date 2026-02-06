@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 18:36:30 by rdinis            #+#    #+#             */
-/*   Updated: 2026/01/31 20:09:39 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/02/06 14:05:54 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,11 @@ std::string formatField(const std::string &str)
 
 void PhoneBook::displayContacts()
 {
-	std::cout << "|index     |first name|last name |nickname  |" << std::endl;
+	std::cout << std::endl << "|" 
+		CYAN "index" RESET"     |" 
+		CYAN "first name" RESET "|"
+		CYAN "last name" RESET " |"
+		CYAN "nickname" RESET "  |" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		if (contact[i].getId() != -1)
@@ -63,4 +67,23 @@ void PhoneBook::displayContacts()
 				<< formatField(contact[i].getNn()) << "|"
 				<< std::endl;
 	}
+	std::cout << std::endl << std::endl;
+}
+
+int PhoneBook::findIndex(int id)
+{
+	for (int i = 0; i < 8; i++)
+	{
+		if (contact[i].getId() == id)
+		{
+			std::cout << CYAN "Index->" RESET << contact[i].getId() << std::endl
+				<< CYAN "First Name->" RESET<< contact[i].getFn() << std::endl
+				<< CYAN "Last Name->" RESET<< contact[i].getLn() << std::endl
+				<< CYAN "Nickname->" RESET<< contact[i].getNn() << std::endl
+				<< CYAN "Phone number->" RESET<< contact[i].getPn() << std::endl
+				<< CYAN "Darkest secret->" RESET<< contact[i].getDs() << std::endl;
+				return 1;
+		}
+	}
+	return 0;
 }

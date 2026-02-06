@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 18:02:28 by rdinis            #+#    #+#             */
-/*   Updated: 2026/01/31 19:43:54 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/02/06 13:40:09 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ public:
 	int		addContact(const std::string &first_name, const std::string &last_name,
 		const std::string &nickname, const std::string &phone_number, const std::string &darkest_secret);
 	void	displayContacts();
+	int		findIndex(int id);
 };
 
 #endif
