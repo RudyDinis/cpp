@@ -1,6 +1,6 @@
-NAME = harl
+NAME = angry_harl
 
-SRC = main.cpp Harl/Harl.cpp Harl/Harl.hpp
+SRC = main.cpp Harl/Harl.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 CC = g++ -std=c++98
