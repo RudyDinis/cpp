@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 11:56:09 by rdinis            #+#    #+#             */
-/*   Updated: 2026/03/13 13:26:45 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/03/20 14:59:57 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	virtual ~Animal();
 	Animal(const Animal &obj);
 	Animal &operator=(const Animal &obj);
-	virtual void makeSound() const;
+	virtual void makeSound() const = 0;
 	virtual std::string getType() const ;
 };
 

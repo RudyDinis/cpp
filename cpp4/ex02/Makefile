@@ -1,4 +1,4 @@
-NAME = I_don’t_want_to_set_the_world_on_fire
+NAME = Abstract_class
 
 SRC = main.cpp Animal/Animal.cpp Dog/Dog.cpp Cat/Cat.cpp WrongCat/WrongCat.cpp WrongAnimal/WrongAnimal.cpp Brain/Brain.cpp
 OBJ := $(SRC:%.cpp=%.o)
