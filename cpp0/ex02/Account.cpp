@@ -38,7 +38,7 @@ void Account::displayAccountsInfos(void)
 }
 void Account::_displayTimestamp(void)
 {
-	std::time_t timestamp = std::time(nullptr);
+	std::time_t timestamp = std::time(NULL);
 	std::tm *t = std::gmtime(&timestamp);
 
 	std::cout << "["

@@ -6,13 +6,18 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 18:20:54 by rdinis            #+#    #+#             */
-/*   Updated: 2026/01/31 19:55:55 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/03/10 13:35:32 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../main.hpp"
 #include "Contact.hpp"
 
+Contact::Contact()
+	: id(-1)
+{
+	
+}
 void Contact::editContact(const std::string &fn, const std::string &ln,
 						  const std::string &nn, const std::string &pn, const std::string &ds, int last_id)
 {

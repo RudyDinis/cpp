@@ -19,6 +19,9 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <cstdlib>
+#include <limits>
 #include "./Contact/Contact.hpp"
 #include "./PhoneBook/PhoneBook.hpp"
 

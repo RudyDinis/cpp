@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 14:06:44 by rdinis            #+#    #+#             */
-/*   Updated: 2026/02/07 14:12:20 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/03/17 15:17:14 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define HUMANB_HPP
 
 #include "../Weapon/Weapon.hpp"
+#include <iostream>
+#include <string>
 
 class HumanB
 {

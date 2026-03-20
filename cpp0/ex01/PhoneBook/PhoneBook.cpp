@@ -6,12 +6,18 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 18:36:30 by rdinis            #+#    #+#             */
-/*   Updated: 2026/02/06 14:05:54 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/03/10 13:39:11 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../main.hpp"
 #include "./PhoneBook.hpp"
+
+PhoneBook::PhoneBook()
+	: last_id(0)
+{
+		
+}
 
 int PhoneBook::addContact(const std::string &first_name, const std::string &last_name,
 						  const std::string &nickname, const std::string &phone_number, const std::string &darkest_secret)
@@ -47,21 +53,28 @@ std::string formatField(const std::string &str)
 	if (str.length() > 10)
 		return str.substr(0, 9) + ".";
 	else
-		return str + std::string(10 - str.length(), ' ');
+		return std::string(10 - str.length(), ' ') + str;
+}
+
+std::string intToString(int n)
+{
+	std::ostringstream oss;
+	oss << n;
+	return oss.str();
 }
 
 void PhoneBook::displayContacts()
 {
 	std::cout << std::endl << "|" 
-		CYAN "index" RESET"     |" 
+		CYAN "     index" RESET"|" 
 		CYAN "first name" RESET "|"
-		CYAN "last name" RESET " |"
-		CYAN "nickname" RESET "  |" << std::endl;
+		CYAN " last name" RESET "|"
+		CYAN "  nickname" RESET "|" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		if (contact[i].getId() != -1)
 			std::cout << "|"
-				<< formatField(std::to_string(contact[i].getId())) << "|"
+				<< formatField(intToString(contact[i].getId())) << "|"
 				<< formatField(contact[i].getFn()) << "|"
 				<< formatField(contact[i].getLn()) << "|"
 				<< formatField(contact[i].getNn()) << "|"

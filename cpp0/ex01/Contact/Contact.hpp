@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 18:10:22 by rdinis            #+#    #+#             */
-/*   Updated: 2026/01/31 19:56:09 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/03/10 13:35:01 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 class Contact
 {
 private:
-	std::string first_name = "";
-	std::string last_name = "";
-	std::string nickname = "";
-	std::string phone_number = "";
-	std::string darkest_secret = "";
-	int			id = -1;
+	std::string first_name;
+	std::string last_name;
+	std::string nickname;
+	std::string phone_number;
+	std::string darkest_secret;
+	int			id;
 public:
+	Contact();
 	void	editContact(const std::string &first_name, const std::string &last_name,
 		const std::string &nickname, const std::string &phone_number, const std::string &darkest_secret, int	last_id);
 	std::string getFn();

@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 14:06:28 by rdinis            #+#    #+#             */
-/*   Updated: 2026/02/07 14:08:04 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/03/17 15:09:27 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ private:
 public:
 	Weapon(std::string name);
 	~Weapon();
-	std::string &getType();
+	const std::string &getType();
 	void setType(std::string name);
 };
 

@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 14:11:29 by rdinis            #+#    #+#             */
-/*   Updated: 2026/02/07 14:11:31 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/03/18 14:42:44 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ Weapon::~Weapon()
 {
 }
 
-std::string& Weapon::getType()
+const std::string& Weapon::getType()
 {
 	return type;
 }
 
-void Weapon::setType(std::string name)
+void Weapon::setType(std::string type)
 {
-	Weapon::type = name;
+	Weapon::type = type;
 }

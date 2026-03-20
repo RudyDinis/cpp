@@ -2,7 +2,7 @@
 
 void replace(std::string *text, std::string s1, std::string s2)
 {
-	int pos = 0;
+	std::string::size_type pos = 0;
 	while ((pos = text->find(s1, pos)) != std::string::npos)
 	{
 		text->insert(pos, s2);
@@ -14,7 +14,7 @@ void replace(std::string *text, std::string s1, std::string s2)
 void openFile(std::string filename, std::string s1, std::string s2)
 {
 	std::string text;
-	std::ifstream file(filename);
+	std::ifstream file(filename.c_str());
 
 	if (!file.is_open())
 	{
@@ -25,7 +25,7 @@ void openFile(std::string filename, std::string s1, std::string s2)
 			return;
 		}
 	}
-	std::ofstream ofs(filename + ".replace");
+	std::ofstream ofs((filename + ".replace").c_str());
 	if (!ofs.is_open())
 	{
 		errorHandler(1);
