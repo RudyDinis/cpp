@@ -20,7 +20,7 @@ public:
 	
 	std::string getName() const;
 	int getGrade() const;
-	void signForm(Form form);
+	void signForm(AForm &form);
 
 	friend std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
 

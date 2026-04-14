@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/14 15:39:56 by rdinis            #+#    #+#             */
+/*   Updated: 2026/04/14 16:00:15 by rdinis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FORM_HPP
 #define FORM_HPP
 
@@ -7,7 +19,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 private:
 	const std::string _name;
@@ -16,16 +28,17 @@ private:
 	const  int _gradeEI;
 	
 public:
-	Form(std::string name, int gradeSI, int gradeEI);
-	~Form();
+	AForm(std::string name, int gradeSI, int gradeEI);
+	~AForm();
 
 	std::string getName() const;
 	bool getSigned() const;
 	int getGradeSI() const;
 	int getGradeEI() const;
-	virtual void beSigned(Bureaucrat bureaucrat) = 0;
+	virtual void execute(Bureaucrat const & executor) const = 0;
+	void beSigned(Bureaucrat bureaucrat);
 
-	friend std::ostream &operator<<(std::ostream &os, const Form &form);
+	friend std::ostream &operator<<(std::ostream &os, const AForm &form);
 
 	class GradeTooHighException : public std::exception
 	{

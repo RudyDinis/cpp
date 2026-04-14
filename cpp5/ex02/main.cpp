@@ -1,13 +1,14 @@
 #include "Bureaucrat/Bureaucrat.hpp"
 #include "AForm/AForm.hpp"
+#include "ShrubberyCreationForm/ShrubberyCreationForm.hpp"
 
 int main()
 {
 	try
 	{
-		Bureaucrat a = Bureaucrat("test", 16);
-		Bureaucrat b = Bureaucrat("test1", 15);
-
+		Bureaucrat b = Bureaucrat("test", 120);
+		ShrubberyCreationForm a = ShrubberyCreationForm("home");
+		a.execute(b);
 	}
 	catch (std::exception &e)
 	{
