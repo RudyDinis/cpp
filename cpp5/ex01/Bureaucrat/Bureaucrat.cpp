@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 15:49:20 by rdinis            #+#    #+#             */
-/*   Updated: 2026/04/15 13:01:02 by rdinis           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "./Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
@@ -55,8 +43,7 @@ int Bureaucrat::getGrade() const
 	return (_grade);
 }
 
-
-void Bureaucrat::signForm(AForm &form)
+void Bureaucrat::signForm(Form form)
 {
 	try {
 		form.beSigned(*this);
@@ -68,18 +55,7 @@ void Bureaucrat::signForm(AForm &form)
 	}
 }
 
-void Bureaucrat::executeForm(AForm const & form)
-{
-	try
-	{
-		form.execute(*this);
-		std::cout << this->getName() << " executed " << form.getName() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << this->getName() << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
-	}
-}
+
 
 Bureaucrat &Bureaucrat::operator++()
 {

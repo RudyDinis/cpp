@@ -1,8 +1,6 @@
-NAME = ex02
+NAME = ex01
 
-SRC = main.cpp Bureaucrat/Bureaucrat.cpp AForm/AForm.cpp \
-		ShrubberyCreationForm/ShrubberyCreationForm.cpp \
-		RobotomyRequestForm/RobotomyRequestForm.cpp
+SRC = main.cpp Bureaucrat/Bureaucrat.cpp Form/Form.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 CC = c++ -std=c++98

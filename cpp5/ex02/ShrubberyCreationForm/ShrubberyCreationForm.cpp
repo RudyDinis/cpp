@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 15:39:40 by rdinis            #+#    #+#             */
-/*   Updated: 2026/04/14 16:53:41 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/04/15 12:53:06 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,25 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		"      |||\n"
 		"  ___/|||\\___\n";
 
-	if (this->getSigned())
+	if (executor.getGrade() <= this->getGradeSI())
 	{
-		if (executor.getGrade() <= this->getGradeSI())
+		if (this->getSigned())
 		{
 			std::ofstream outfile((_target + "_shrubbery").c_str());
 			outfile << tree << std::endl;
 		}
+		else
+		{
+			throw FormNotSignedException();
+		}
 	}
 	else
 	{
-		std::cout << "not signed";
+		throw GradeTooLowException();
 	}
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
+	
 }

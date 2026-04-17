@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 15:39:56 by rdinis            #+#    #+#             */
-/*   Updated: 2026/04/14 16:00:15 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/04/15 12:42:21 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ public:
 	};
 
 	class GradeTooLowException : public std::exception
+	{
+	public:
+		const char *what() const throw();
+	};
+
+	class FormNotSignedException : public std::exception
 	{
 	public:
 		const char *what() const throw();

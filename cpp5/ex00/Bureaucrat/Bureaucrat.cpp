@@ -15,6 +15,22 @@ Bureaucrat::~Bureaucrat()
 {
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat &obj)
+{
+	std::cout << "Bureaucrat copy instructor called" << std::endl;
+	*this = obj;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
+{
+	std::cout << "Bureaucrat copy assignment operator called" << std::endl;
+	if (this != &obj)
+	{
+		_grade = obj._grade;
+	}
+	return (*this);
+}
+
 std::string Bureaucrat::getName() const
 {
 	return (_name);
