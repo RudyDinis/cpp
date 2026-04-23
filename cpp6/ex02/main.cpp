@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/18 18:10:54 by rdinis            #+#    #+#             */
-/*   Updated: 2026/04/23 12:13:33 by rdinis           ###   ########.fr       */
+/*   Created: 2026/04/23 13:28:07 by rdinis            #+#    #+#             */
+/*   Updated: 2026/04/23 13:34:36 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#include "functions.hpp"
 
-#include <iostream>
-#include <string>
-#include <cstdlib>
-#include <iomanip>
-#include <climits>
-
-class ScalarConverter
+int main()
 {
-private:
-	ScalarConverter();
-	ScalarConverter(const ScalarConverter &obj);
-	ScalarConverter &operator=(const ScalarConverter &obj);
-	
-	~ScalarConverter();
-public:
-	static void convert(const std::string literal);
-};
+	std::srand(std::time(0));
 
 
-#endif
+	Base* test = generate();
+	identify(test);
+	identify(*test);
+
+	delete test;
+
+	std::cout << "------------" << std::endl;
+
+	Base* test1 = generate();
+	identify(test1);
+	identify(*test1);
+
+	delete test1;
+
+	std::cout << "------------" << std::endl;
+
+	Base* test2 = generate();
+	identify(test2);
+	identify(*test2);
+
+	delete test2;
+}

@@ -6,21 +6,31 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 18:10:59 by rdinis            #+#    #+#             */
-/*   Updated: 2026/04/20 13:41:47 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/04/23 13:37:48 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter(/* args */)
+ScalarConverter::ScalarConverter()
 {
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &obj)
+{
+	(void)obj;
+}
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &obj)
+{
+	(void)obj;
+	return (*this);
 }
 
 static int detect_type(const std::string literal)
 {
-	if (literal == "-inf" || literal == "+inf")
+	if (literal == "+inff" || literal == "+inf")
 		return (-3);
-	else if (literal == "-inf" || literal == "+inf")
+	else if (literal == "-inff" || literal == "-inf")
 		return (-2);
 	else if (literal.length() == 1 && literal[0] > '9')
 		return 0;
@@ -48,8 +58,21 @@ void ScalarConverter::convert(const std::string literal)
 
 	switch (type)
 	{
+	case -3:
+	{
+		std::cout << "char : impossible" << std::endl;
+		std::cout << "int : impossible" << std::endl;
+		std::cout << "float : +inff" << std::endl;
+		std::cout << "double : +inf" << std::endl;
+		break;
+	}
 	case -2:
 	{
+		std::cout << "char : impossible" << std::endl;
+		std::cout << "int : impossible" << std::endl;
+		std::cout << "float : -inff" << std::endl;
+		std::cout << "double : -inf" << std::endl;
+		break;
 	}
 	case -1:
 	{
@@ -98,7 +121,7 @@ void ScalarConverter::convert(const std::string literal)
 		if (value < (double)INT_MIN || value > (double)INT_MAX)
 			std::cout << "int : overflow" << std::endl;
 		else
-			std::cout << "int : " << value << std::endl;
+			std::cout << "int : " << static_cast<int>(value) << std::endl;
 		std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
 		std::cout << "double : " << std::fixed << std::setprecision(1) << value << std::endl;
 		break;
