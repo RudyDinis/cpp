@@ -5,6 +5,21 @@ Span::Span(unsigned int N)
 {
 }
 
+Span::Span(const Span &obj)
+{
+	*this = obj;
+}
+
+Span &Span::operator=(const Span &obj)
+{
+	if (this != &obj)
+	{
+		this->_span = obj._span;
+		this->_N = obj._N;
+	}
+	return (*this);
+}
+
 void Span::addNumber(int value)
 {
 	if (_span.size() == _N)
@@ -14,8 +29,8 @@ void Span::addNumber(int value)
 
 void Span::addRandNumbers(int begin, int end)
 {
-	(void) begin;
-	(void) end;
+	(void)begin;
+	(void)end;
 	for (unsigned int i = 0; i < (_N - _span.size()); i++)
 	{
 		const int value = rand() % (end - begin + 1) + begin;
@@ -29,8 +44,8 @@ int Span::shortestSpan()
 	int min = _span[1] - _span[0];
 	for (unsigned int i = 1; i < _span.size() - 1; i++)
 	{
-		if (min > (_span[i+1] - _span[i]))
-			min = _span[i+1] - _span[i];
+		if (min > (_span[i + 1] - _span[i]))
+			min = _span[i + 1] - _span[i];
 	}
 	return (min);
 }

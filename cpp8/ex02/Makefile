@@ -1,6 +1,6 @@
-NAME = ex01
+NAME = ex02
 
-SRC = main.cpp Mutan
+SRC = main.cpp
 OBJ := $(SRC:%.cpp=%.o)
 
 CC = c++ -std=c++98

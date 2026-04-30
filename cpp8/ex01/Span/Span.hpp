@@ -14,6 +14,8 @@ private:
 	std::vector <int> _span;
 public:
 	Span(unsigned int N);
+	Span(const Span &obj);
+	Span &operator=(const Span &obj);
 	void addNumber(int value);
 	void addRandNumbers(int begin, int end);
 	int	shortestSpan();
