@@ -27,17 +27,6 @@ void Span::addNumber(int value)
 	_span.push_back(value);
 }
 
-void Span::addRandNumbers(int begin, int end)
-{
-	(void)begin;
-	(void)end;
-	for (unsigned int i = 0; i < (_N - _span.size()); i++)
-	{
-		const int value = rand() % (end - begin + 1) + begin;
-		_span.push_back(value);
-	}
-}
-
 int Span::shortestSpan()
 {
 	std::sort(_span.begin(), _span.end());

@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 15:39:40 by rdinis            #+#    #+#             */
-/*   Updated: 2026/04/15 12:53:06 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/04/17 18:55:29 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,22 @@
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 	: AForm("ShrubberyCreation", 145, 137), _target(target)
 {
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj)
+	: AForm("PresidentialPardonForm", 25, 5), _target(obj._target)
+{
+	//std::cout << "ShrubberyCreationForm copy instructor called" << std::endl;
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj)
+{
+	//std::cout << "ShrubberyCreationForm copy assignment operator called" << std::endl;
+	if (this != &obj)
+	{
+		_target = obj._target;
+	}
+	return (*this);
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const

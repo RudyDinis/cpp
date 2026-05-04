@@ -22,5 +22,18 @@ int main()
 		++it;
 	}
 	std::stack<int> s(mstack);
+
+	MutantStack<std::string> sstack;
+	sstack.push("hello");
+	sstack.push("world");
+	sstack.push("42");
+	MutantStack<std::string>::iterator sit = sstack.begin();
+	while (sit != sstack.end())
+		std::cout << *sit++ << std::endl;
+
+	const MutantStack<int> cmstack(mstack);
+	MutantStack<int>::const_iterator cit = cmstack.begin();
+	while (cit != cmstack.end())
+		std::cout << *cit++ << std::endl;
 	return 0;
 }

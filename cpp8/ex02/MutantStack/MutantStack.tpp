@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:23:56 by rdinis            #+#    #+#             */
-/*   Updated: 2026/04/30 14:54:59 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/04/30 15:03:12 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ MutantStack<T> &MutantStack<T>::operator=(const MutantStack &obj)
 {
 	if (this != &obj)
 	{
-
+		std::stack<T>::operator=(obj);
 	}
 	return (*this);
 }

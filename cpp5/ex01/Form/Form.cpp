@@ -4,7 +4,7 @@
 Form::Form(std::string name, int gradeSI, int gradeEI)
 	: _name(name), _isSigned(false), _gradeSI(gradeSI), _gradeEI(gradeEI)
 {
-	//std::cout << "Init Form" << std::endl;
+	// std::cout << "Init Form" << std::endl;
 
 	(void)_isSigned;
 
@@ -12,6 +12,25 @@ Form::Form(std::string name, int gradeSI, int gradeEI)
 		throw GradeTooHighException();
 	if (_gradeEI > 150 || _gradeSI > 150)
 		throw GradeTooLowException();
+}
+
+Form::Form(const Form &obj)
+	: _name(obj._name),
+	  _isSigned(obj._isSigned),
+	  _gradeSI(obj._gradeSI),
+	  _gradeEI(obj._gradeEI)
+{
+	// std::cout << "form copy instructor called" << std::endl;
+}
+
+Form &Form::operator=(const Form &obj)
+{
+	// std::cout << "form copy assignment operator called" << std::endl;
+	if (this != &obj)
+	{
+		_isSigned = obj._isSigned;
+	}
+	return (*this);
 }
 
 std::string Form::getName() const
@@ -36,9 +55,10 @@ int Form::getGradeEI() const
 
 std::ostream &operator<<(std::ostream &os, const Form &form)
 {
-	os << "name : " << form.getName() << std::endl << "isSigned : " << (form.getSigned() ? "true" : "false") << std::endl
-		<< "grade required to sign it : " << form.getGradeSI() << std::endl
-		<< "grade required to execute it : " << form.getGradeEI() << std::endl;
+	os << "name : " << form.getName() << std::endl
+	   << "isSigned : " << (form.getSigned() ? "true" : "false") << std::endl
+	   << "grade required to sign it : " << form.getGradeSI() << std::endl
+	   << "grade required to execute it : " << form.getGradeEI() << std::endl;
 	return (os);
 }
 
@@ -56,7 +76,7 @@ void Form::beSigned(Bureaucrat bureaucrat)
 
 Form::~Form()
 {
-	//std::cout << "Destroy Form" << std::endl;
+	// std::cout << "Destroy Form" << std::endl;
 }
 
 const char *Form::GradeTooHighException::what() const throw()

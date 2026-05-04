@@ -17,7 +17,11 @@ public:
 	Span(const Span &obj);
 	Span &operator=(const Span &obj);
 	void addNumber(int value);
-	void addRandNumbers(int begin, int end);
+	template <typename T>
+	void addNumbers(T begin, T end)
+	{
+		_span.insert(_span.end(), begin, end);
+	}
 	int	shortestSpan();
 	int longestSpan();
 	int &operator[](unsigned int index);

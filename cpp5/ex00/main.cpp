@@ -6,8 +6,8 @@ int main()
 	{
 
 		Bureaucrat a = Bureaucrat("test", 1);
-		std::cout << a-- << std::endl;
-		std::cout << a++ << std::endl;
+		std::cout << a << std::endl;
+		std::cout << a << std::endl;
 		std::cout << --a << std::endl;
 		std::cout << ++a << std::endl;
 		std::cout << ++a << std::endl;

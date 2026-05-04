@@ -2,7 +2,7 @@
 
 int main()
 {
-	 srand(time(NULL));
+	srand(time(NULL));
 	try
 	{
 		Span sp1 = Span(5);
@@ -37,8 +37,14 @@ int main()
 
 	try
 	{
+		std::vector<int> v;
+		v.push_back(1);
+		v.push_back(2);
+		v.push_back(3);
+
+		
 		Span sp2 = Span(10000);
-		sp2.addRandNumbers(0, 10000);
+		sp2.addNumbers(v.begin(), v.end());
 		std::cout << sp2.shortestSpan() << std::endl;
 		std::cout << sp2.longestSpan() << std::endl;
 	}

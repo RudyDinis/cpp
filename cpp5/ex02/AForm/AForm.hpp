@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 15:39:56 by rdinis            #+#    #+#             */
-/*   Updated: 2026/04/15 12:42:21 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/04/17 18:45:18 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ private:
 public:
 	AForm(std::string name, int gradeSI, int gradeEI);
 	~AForm();
-
+	AForm(const AForm &obj);
+	AForm &operator=(const AForm &obj);
+	
 	std::string getName() const;
 	bool getSigned() const;
 	int getGradeSI() const;

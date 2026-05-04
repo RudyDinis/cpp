@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 15:39:40 by rdinis            #+#    #+#             */
-/*   Updated: 2026/04/15 17:11:02 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/04/17 18:54:33 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,23 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
 {
 	
 }
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj)
+	: AForm("PresidentialPardonForm", 25, 5), _target(obj._target)
+{
+	//std::cout << "RobotomyRequestForm copy instructor called" << std::endl;
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &obj)
+{
+	//std::cout << "PresidentialPardonForm copy assignment operator called" << std::endl;
+	if (this != &obj)
+	{
+		_target = obj._target;
+	}
+	return (*this);
+}
+
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {

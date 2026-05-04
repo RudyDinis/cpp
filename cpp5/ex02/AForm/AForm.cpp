@@ -14,6 +14,25 @@ AForm::AForm(std::string name, int gradeSI, int gradeEI)
 		throw GradeTooLowException();
 }
 
+AForm::AForm(const AForm &obj)
+	: _name(obj._name),
+	  _isSigned(obj._isSigned),
+	  _gradeSI(obj._gradeSI),
+	  _gradeEI(obj._gradeEI)
+{
+	// std::cout << "Aform copy instructor called" << std::endl;
+}
+
+AForm &AForm::operator=(const AForm &obj)
+{
+	// std::cout << "Aform copy assignment operator called" << std::endl;
+	if (this != &obj)
+	{
+		_isSigned = obj._isSigned;
+	}
+	return (*this);
+}
+
 std::string AForm::getName() const
 {
 	return (_name);

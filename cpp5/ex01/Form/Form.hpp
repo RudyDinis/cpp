@@ -13,10 +13,12 @@ private:
 	const std::string _name;
 	bool _isSigned;
 	const int _gradeSI;
-	const  int _gradeEI;
-	
+	const int _gradeEI;
+
 public:
 	Form(std::string name, int gradeSI, int gradeEI);
+	Form(const Form &obj);
+	Form &operator=(const Form &obj);
 	~Form();
 
 	std::string getName() const;
@@ -39,6 +41,5 @@ public:
 		const char *what() const throw();
 	};
 };
-
 
 #endif
