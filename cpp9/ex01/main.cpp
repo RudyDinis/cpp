@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 11:09:39 by rdinis            #+#    #+#             */
-/*   Updated: 2026/05/12 13:35:48 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/05/19 11:38:31 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ int main(int argc, char **argv)
 				return (std::cerr << "Error" << std::endl, 0);
 			i++;
 		}
-		std::cout << rpn.numbers().top() << std::endl;
+		if (rpn.numbers().size() != 1)
+			std::cerr << "Missing operator" << std::endl;
+		else
+			std::cout << rpn.numbers().top() << std::endl;
 	}
 	catch (const std::exception &e)
 	{

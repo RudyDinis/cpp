@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 12:00:26 by rdinis            #+#    #+#             */
-/*   Updated: 2026/05/13 14:01:13 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/05/19 12:04:17 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <sys/time.h>
 #include <vector>
 #include <deque>
+#include <cctype>
 
 class PmergeMe
 {

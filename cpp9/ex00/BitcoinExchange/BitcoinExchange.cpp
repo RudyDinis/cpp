@@ -6,7 +6,7 @@
 /*   By: rdinis <rdinis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:04:07 by rdinis            #+#    #+#             */
-/*   Updated: 2026/05/08 16:04:27 by rdinis           ###   ########.fr       */
+/*   Updated: 2026/05/19 12:56:52 by rdinis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,20 @@ BitcoinExchange::BitcoinExchange(/* args */)
 {
 }
 
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj)
+{
+	(void) obj;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &obj)
+{
+	(void) obj;
+	return (*this);
+}
+
 BitcoinExchange::~BitcoinExchange()
 {
+	
 }
 
 void BitcoinExchange::parseCSV()
@@ -54,18 +66,94 @@ void BitcoinExchange::exchange(std::string date, double amount)
 
 	std::cout << value->first << " => " << amount << " = " << value->second * amount << std::endl;
 }
+int isBissextile(int year)
+{
+	if (year % 400 == 0)
+		return true;
+	if (year % 100 == 0)
+		return false;
+	if (year % 4 == 0)
+		return true;
+	return false;
+}
 
 std::pair<std::string, double> BitcoinExchange::checkRules(std::string value)
 {
 	std::string date = value.substr(0, value.find(' '));
 	if (date.size() != 10)
 		throw std::runtime_error("Error: bad input");
-	int month = std::strtol(date.substr(date.find('-') + 1, 2).c_str(), NULL, 10);
-	int day   = std::strtol(date.substr(date.rfind('-') + 1, 2).c_str(), NULL, 10);
+
+	int year, month, day;
+	char sep1, sep2;
+
+	std::stringstream ss(date);
+	ss >> year >> sep1 >> month >> sep2 >> day;
 
 	if (month > 12 || day > 31 || day == 0 || month == 0)
 		throw std::runtime_error("Error: bad input");
 	
+	switch (month)
+	{
+	case 1:
+		if (day > 31)
+			throw std::runtime_error("Error: bad input");
+		break;
+	case 2:
+		if (isBissextile(year))
+		{
+			if (day > 29)
+				throw std::runtime_error("Error: bad input");
+		}
+		else
+		{
+			if (day > 28)
+				throw std::runtime_error("Error: bad input");			
+		}
+		break;
+	case 3:
+		if (day > 31)
+			throw std::runtime_error("Error: bad input");
+		break;
+	case 4:
+		if (day > 30)
+			throw std::runtime_error("Error: bad input");
+		break;
+	case 5:
+		if (day > 31)
+			throw std::runtime_error("Error: bad input");
+		break;
+	case 6:
+		if (day > 30)
+			throw std::runtime_error("Error: bad input");
+		break;
+	case 7:
+		if (day > 31)
+			throw std::runtime_error("Error: bad input");
+		break;
+	case 8:
+		if (day > 31)
+			throw std::runtime_error("Error: bad input");
+		break;
+	case 9:
+		if (day > 30)
+			throw std::runtime_error("Error: bad input");
+		break;
+	case 10:
+		if (day > 31)
+			throw std::runtime_error("Error: bad input");
+		break;
+	case 11:
+		if (day > 30)
+			throw std::runtime_error("Error: bad input");
+		break;
+	case 12:
+		if (day > 31)
+			throw std::runtime_error("Error: bad input");
+		break;
+	default:
+		break;
+	}
+		
 	if (value.size() <= 13)
 		throw std::runtime_error("Error: bad input");
 	double amount = strtod(value.substr(13).c_str(), NULL);

@@ -10,13 +10,12 @@ class RPN
 private:
 	std::stack<int> _numbers;
 public:
-	RPN(/* args */);
+	RPN();
 	RPN(const RPN &obj);
 	RPN &operator=(const RPN &obj);
 	~RPN();
 
 	std::stack<int> &numbers();
-	std::stack<char> &signs();
 
 	template <typename T>
 	void printstack(std::stack<T> content);
